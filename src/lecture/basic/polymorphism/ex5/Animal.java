@@ -1,0 +1,8 @@
+package lecture.basic.polymorphism.ex5;
+
+public interface Animal {
+
+    void sound();
+
+    void move();
+}
