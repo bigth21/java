@@ -1,18 +1,18 @@
-package lecture.mid.collection.array;
+package lecture.mid.collection.arraylist;
 
 import java.util.Arrays;
 
-public class MyArrayListV3 {
+public class MyArrayListV2 {
     private static final int DEFAULT_CAPACITY = 5;
 
     private Object[] elements;
     private int size = 0;
 
-    public MyArrayListV3() {
+    public MyArrayListV2() {
         elements = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyArrayListV3(int capacity) {
+    public MyArrayListV2(int capacity) {
         elements = new Object[capacity];
     }
 
@@ -22,24 +22,9 @@ public class MyArrayListV3 {
 
     public void add(Object e) {
         if (size == elements.length) {
-            elements = grow();
+            elements = Arrays.copyOf(elements, elements.length * 2);
         }
         elements[size++] = e;
-    }
-
-    public void add(int index, Object e) {
-        if (size == elements.length) {
-            elements = grow();
-        }
-        for (int i = size; i > index; i--) {
-            elements[i] = elements[i - 1];
-        }
-        elements[index] = e;
-        size++;
-    }
-
-    private Object[] grow() {
-        return Arrays.copyOf(elements, elements.length * 2);
     }
 
     public Object get(int index) {
@@ -58,16 +43,6 @@ public class MyArrayListV3 {
                 return i;
         }
         return -1;
-    }
-
-    public Object remove(int index) {
-        Object removed = elements[index];
-        for (int i = index; i < size - 1; i++) {
-            elements[i] = elements[i + 1];
-        }
-        size--;
-        elements[size] = null;
-        return removed;
     }
 
     public String toString() {

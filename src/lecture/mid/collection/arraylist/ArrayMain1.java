@@ -1,4 +1,4 @@
-package lecture.mid.collection.array;
+package lecture.mid.collection.arraylist;
 
 import java.util.Arrays;
 

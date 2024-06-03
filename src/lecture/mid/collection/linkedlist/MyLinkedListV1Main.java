@@ -1,10 +1,8 @@
-package lecture.mid.collection.array;
+package lecture.mid.collection.linkedlist;
 
-import java.util.ArrayList;
-
-public class MyArrayListV3Main {
+public class MyLinkedListV1Main {
     public static void main(String[] args) {
-        MyArrayListV3 list = new MyArrayListV3();
+        MyLinkedListV1 list = new MyLinkedListV1();
         System.out.println("list = " + list);
         list.add("a");
         System.out.println("list = " + list);
@@ -26,12 +24,6 @@ public class MyArrayListV3Main {
 
         // Exception
         list.add("f");
-        System.out.println("list = " + list);
-
-        list.add(2, "g");
-        System.out.println("list = " + list);
-
-        list.remove(2);
         System.out.println("list = " + list);
     }
 }

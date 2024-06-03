@@ -1,4 +1,4 @@
-package lecture.mid.collection.array;
+package lecture.mid.collection.arraylist;
 
 public class MyArrayListV1Main {
     public static void main(String[] args) {

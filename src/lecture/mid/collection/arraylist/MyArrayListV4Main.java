@@ -1,10 +1,8 @@
-package lecture.mid.collection.array;
+package lecture.mid.collection.arraylist;
 
-import java.util.ArrayList;
-
-public class MyArrayListV2Main {
+public class MyArrayListV4Main {
     public static void main(String[] args) {
-        MyArrayListV2 list = new MyArrayListV2();
+        MyArrayListV4<String> list = new MyArrayListV4<>();
         System.out.println("list = " + list);
         list.add("a");
         System.out.println("list = " + list);
@@ -26,6 +24,13 @@ public class MyArrayListV2Main {
 
         // Exception
         list.add("f");
+        System.out.println("list = " + list);
+
+        list.add(2, "g");
+        System.out.println("list = " + list);
+
+        String remove = list.remove(2);
+        System.out.println("remove = " + remove);
         System.out.println("list = " + list);
     }
 }

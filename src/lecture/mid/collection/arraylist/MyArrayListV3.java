@@ -1,18 +1,18 @@
-package lecture.mid.collection.array;
+package lecture.mid.collection.arraylist;
 
 import java.util.Arrays;
 
-public class MyArrayListV4<E> {
+public class MyArrayListV3 {
     private static final int DEFAULT_CAPACITY = 5;
 
     private Object[] elements;
     private int size = 0;
 
-    public MyArrayListV4() {
+    public MyArrayListV3() {
         elements = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyArrayListV4(int capacity) {
+    public MyArrayListV3(int capacity) {
         elements = new Object[capacity];
     }
 
@@ -20,14 +20,14 @@ public class MyArrayListV4<E> {
         return size;
     }
 
-    public void add(E e) {
+    public void add(Object e) {
         if (size == elements.length) {
             elements = grow();
         }
         elements[size++] = e;
     }
 
-    public void add(int index, E e) {
+    public void add(int index, Object e) {
         if (size == elements.length) {
             elements = grow();
         }
@@ -42,18 +42,17 @@ public class MyArrayListV4<E> {
         return Arrays.copyOf(elements, elements.length * 2);
     }
 
-    @SuppressWarnings("unchecked")
-    public E get(int index) {
-        return (E) elements[index];
+    public Object get(int index) {
+        return elements[index];
     }
 
-    public E set(int index, E e) {
-        E old = get(index);
+    public Object set(int index, Object e) {
+        Object old = elements[index];
         elements[index] = e;
         return old;
     }
 
-    public int indexOf(E o) {
+    public int indexOf(Object o) {
         for (int i = 0; i < size; i++) {
             if (elements[i] == o)
                 return i;
@@ -61,8 +60,8 @@ public class MyArrayListV4<E> {
         return -1;
     }
 
-    public E remove(int index) {
-        E removed = get(index);
+    public Object remove(int index) {
+        Object removed = elements[index];
         for (int i = index; i < size - 1; i++) {
             elements[i] = elements[i + 1];
         }
