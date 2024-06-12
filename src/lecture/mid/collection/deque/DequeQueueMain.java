@@ -1,11 +1,11 @@
 package lecture.mid.collection.deque;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Queue;
 
 public class DequeQueueMain {
     public static void main(String[] args) {
-        Deque<Integer> deque = new ArrayDeque<>();
+        Queue<Integer> deque = new ArrayDeque<>();
 
         deque.offer(1);
         deque.offer(2);
