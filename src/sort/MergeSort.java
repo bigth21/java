@@ -46,6 +46,6 @@ public class MergeSort {
             }
         }
 
-        System.arraycopy(sorted, 0, a, 0, right + 1);
+        System.arraycopy(sorted, left, a, left, right - left + 1);
     }
 }
