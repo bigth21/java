@@ -12,7 +12,7 @@ public class SortMain4 {
         List<MyUser> list = new java.util.ArrayList<>(List.of(user1, user2, user3));
         System.out.println("list = " + list);
 
-//        list.sort(null);
+//        list.algorithm.sort(null);
         list.sort(Comparator.naturalOrder());
         System.out.println("list = " + list);
 
