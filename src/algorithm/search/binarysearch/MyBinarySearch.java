@@ -1,12 +1,13 @@
-package algorithm.search;
+package algorithm.search.binarysearch;
 
 import java.util.Arrays;
 
-public class BinarySearch {
+public class MyBinarySearch {
     public static void main(String[] args) {
-        int[] input = {5, 4, 8, 2, 9, 1, 3, 7};
+        int[] input = {5, 4, 8, 2, 9, 1, 3, 7, 2, 6};
         int target= 9;
-        System.out.println(binarySearch(input, target));
+        boolean exist = binarySearch(input, target);
+        System.out.println(exist);
     }
 
     private static boolean binarySearch(int[] input, int target) {
