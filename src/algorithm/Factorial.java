@@ -2,14 +2,25 @@ package algorithm;
 
 public class Factorial {
     public static void main(String[] args) {
-        int factorial = factorial(5);
-        System.out.println(factorial);
+        int result = factorialRecursive(5);
+        System.out.println("result = " + result);
+
+        result = factorialIterative(5);
+        System.out.println("result = " + result);
     }
 
-    public static int factorial(int n) {
+    public static int factorialRecursive(int n) {
         if (n == 0) {
             return 1;
         }
-        return n * factorial(n - 1);
+        return n * factorialRecursive(n - 1);
+    }
+
+    public static int factorialIterative(int n) {
+        int ans = 1;
+        for (int i = 1; i <= n; i++) {
+            ans *= i;
+        }
+        return ans;
     }
 }
