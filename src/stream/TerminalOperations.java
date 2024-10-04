@@ -115,10 +115,23 @@ public class TerminalOperations {
     private static class Reduce {
         public static void main(String[] args) {
             List<Integer> nums = List.of(1, 2, 3, 2, 5, 2);
+
             Integer reduce = nums.stream()
                     .reduce(BinaryOperator.maxBy(Comparator.naturalOrder()))
                     .orElseThrow();
             System.out.println("reduce = " + reduce);
+
+            // With identity value
+            Integer product = nums.stream()
+                    .reduce(1, (a, b) -> a * b);
+            System.out.println("product = " + product);
+
+            // Without identity value
+            product = nums.stream()
+                    .reduce((a, b) -> a * b)
+                    .orElseThrow();
+            System.out.println("product = " + product);
+
         }
     }
 
