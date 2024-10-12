@@ -13,7 +13,6 @@ public class VolatileCountMain {
 
         task.flag = false;
         log("flag = " + task.flag + ", count = " + task.count);
-
     }
 
     static class MyTask implements Runnable {
@@ -28,7 +27,7 @@ public class VolatileCountMain {
                     log("flag = " + flag + ", count = " + count);
                 }
             }
-            log("Terminated");
+            log("flag = " + flag + ", count = " + count);
         }
     }
 }
