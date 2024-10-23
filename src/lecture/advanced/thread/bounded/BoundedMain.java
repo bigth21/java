@@ -8,10 +8,10 @@ import static lecture.advanced.util.ThreadUtils.sleep;
 
 public class BoundedMain {
     public static void main(String[] args) {
-        BoundedQueue queue = new BoundedQueueV3(2);
+        BoundedQueue queue = new BoundedQueueV4(2);
 
-        producerFirst(queue);
-//        consumerFirst(queue);
+//        producerFirst(queue);
+        consumerFirst(queue);
     }
 
     private static void producerFirst(BoundedQueue queue) {
