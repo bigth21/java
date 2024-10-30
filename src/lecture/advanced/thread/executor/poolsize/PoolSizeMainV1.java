@@ -1,0 +1,59 @@
+package lecture.advanced.thread.executor.poolsize;
+
+import lecture.advanced.thread.executor.RunnableTask;
+
+import java.util.concurrent.*;
+
+import static lecture.advanced.thread.executor.ExecutorUtils.printState;
+import static lecture.advanced.util.MyLogger.log;
+import static lecture.advanced.util.ThreadUtils.sleep;
+
+public class PoolSizeMainV1 {
+    public static void main(String[] args) {
+        ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(2);
+        ExecutorService es = new ThreadPoolExecutor(2, 4, 3000,
+                TimeUnit.MILLISECONDS, workQueue);
+        printState(es);
+
+        // When Queue and pool-size are full, the Number of threads in the thread pool increases
+        es.execute(new RunnableTask("task1"));
+        printState(es, "task1");
+
+        es.execute(new RunnableTask("task2"));
+        printState(es, "task2");
+
+        es.execute(new RunnableTask("task3"));
+        printState(es, "task3");
+
+        es.execute(new RunnableTask("task4"));
+        printState(es, "task4");
+
+        es.execute(new RunnableTask("task5"));
+        printState(es, "task5");
+
+        es.execute(new RunnableTask("task6"));
+        printState(es, "task6");
+
+        try {
+            es.execute(new RunnableTask("task7"));
+        } catch (RejectedExecutionException e) {
+            log("Execution rejection occurred: " + e);
+        }
+
+        sleep(3_000);
+        log("Execution is terminated");
+        printState(es);
+
+        sleep(3_000);
+        log("KeepAliveTime timed out");
+        printState(es);
+
+        sleep(3_000);
+        log("Execution is terminated");
+        printState(es);
+
+        es.close();
+        log("Executor service has been closed");
+        printState(es);
+    }
+}
