@@ -1,4 +1,4 @@
-package lecture.advanced2.was.httpserver.reflection;
+package lecture.advanced2.was.httpserver.servlet.reflection;
 
 import lecture.advanced2.was.httpserver.HttpRequest;
 import lecture.advanced2.was.httpserver.HttpResponse;
