@@ -6,15 +6,16 @@ import java.util.concurrent.Executors;
 
 public class StringBuilderBufferCompare {
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < 10; i++) { // To ensure the same conditions for optimization
+        for (int i = 0; i < 2; i++) { // To ensure the same conditions for optimization
             testStringBuilder();
             testStringBuffer();
         }
     }
 
-    private static void testStringBuffer() throws InterruptedException {
+    private static void testStringBuilder() throws InterruptedException {
         long startTime = System.nanoTime();
-        var sb = new StringBuffer();
+        var sb = new StringBuilder();
+
         var countDownLatch = new CountDownLatch(100);
         try (ExecutorService executor = Executors.newFixedThreadPool(10)) {
             for (int i = 0; i < 100; i++) {
@@ -26,6 +27,7 @@ public class StringBuilderBufferCompare {
                 });
             }
         }
+
         countDownLatch.await();
         long endTime = System.nanoTime();
 
@@ -33,10 +35,11 @@ public class StringBuilderBufferCompare {
         System.out.println("sb.length() = " + sb.length());
     }
 
-    private static void testStringBuilder() throws InterruptedException {
+    private static void testStringBuffer() throws InterruptedException {
         long startTime = System.nanoTime();
-        var sb = new StringBuilder();
+        var sb = new StringBuffer();
         var countDownLatch = new CountDownLatch(100);
+
         try (ExecutorService executor = Executors.newFixedThreadPool(10)) {
             for (int i = 0; i < 100; i++) {
                 executor.execute(() -> {
@@ -47,6 +50,7 @@ public class StringBuilderBufferCompare {
                 });
             }
         }
+
         countDownLatch.await();
         long endTime = System.nanoTime();
 
