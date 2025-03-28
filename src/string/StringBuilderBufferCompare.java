@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 
 public class StringBuilderBufferCompare {
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < 10; i++) { // To make same condition about optimization
+        for (int i = 0; i < 10; i++) { // To ensure the same conditions for optimization
             testStringBuilder();
             testStringBuffer();
         }
