@@ -14,14 +14,14 @@ public class StringBuilderBufferCompare {
 
     private static void testStringBuilder() throws InterruptedException {
         long startTime = System.nanoTime();
-        var sb = new StringBuilder();
+        var stringBuilder = new StringBuilder();
 
         var countDownLatch = new CountDownLatch(100);
         try (ExecutorService executor = Executors.newFixedThreadPool(10)) {
             for (int i = 0; i < 100; i++) {
                 executor.execute(() -> {
                     for (int j = 0; j < 100; j++) {
-                        sb.append("A");
+                        stringBuilder.append("A");
                     }
                     countDownLatch.countDown();
                 });
@@ -32,19 +32,19 @@ public class StringBuilderBufferCompare {
         long endTime = System.nanoTime();
 
         System.out.println("time = " + (endTime - startTime) / 1000);
-        System.out.println("sb.length() = " + sb.length());
+        System.out.println("sb.length() = " + stringBuilder.length());
     }
 
     private static void testStringBuffer() throws InterruptedException {
         long startTime = System.nanoTime();
-        var sb = new StringBuffer();
+        var stringBuffer = new StringBuffer();
         var countDownLatch = new CountDownLatch(100);
 
         try (ExecutorService executor = Executors.newFixedThreadPool(10)) {
             for (int i = 0; i < 100; i++) {
                 executor.execute(() -> {
                     for (int j = 0; j < 100; j++) {
-                        sb.append("A");
+                        stringBuffer.append("A");
                     }
                     countDownLatch.countDown();
                 });
@@ -55,6 +55,6 @@ public class StringBuilderBufferCompare {
         long endTime = System.nanoTime();
 
         System.out.println("time = " + (endTime - startTime) / 1000);
-        System.out.println("sb.length() = " + sb.length());
+        System.out.println("sb.length() = " + stringBuffer.length());
     }
 }
